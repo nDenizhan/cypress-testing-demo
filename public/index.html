@@ -3,12 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <title>To-Do App</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>To-Do List</h1>
-  <input id="new-todo" placeholder="Add a new task" />
-  <button onclick="addTodo()">Add</button>
-  <ul id="todo-list"></ul>
+  <div class="theme-toggle">
+    <label>
+      <input type="checkbox" id="toggle-dark" />
+      Dark Mode
+    </label>
+  </div>
+
+  <div class="container">
+    <h1>To-Do List</h1>
+    <div class="form-group">
+      <input id="new-todo" placeholder="Add a new task" />
+      <button onclick="addTodo()">Add</button>
+    </div>
+    <ul id="todo-list"></ul>
+
+    <h2>Form Elements</h2>
+
+    <div class="form-section">
+      <div class="form-group">
+        <label for="text-field">Text Field:</label>
+        <input type="text" id="text-field" placeholder="Enter some text" />
+      </div>
+
+      <div class="form-group">
+        <label>Priority:</label>
+        <div class="inline-group">
+          <label><input type="radio" name="priority" value="low" /> Low</label>
+          <label><input type="radio" name="priority" value="medium" /> Medium</label>
+          <label><input type="radio" name="priority" value="high" /> High</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Tags:</label>
+        <div class="inline-group">
+          <label><input type="checkbox" name="tags" value="work" /> Work</label>
+          <label><input type="checkbox" name="tags" value="personal" /> Personal</label>
+          <label><input type="checkbox" name="tags" value="urgent" /> Urgent</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="due-date">Due Date:</label>
+        <input type="date" id="due-date" />
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select id="category">
+          <option value="home">Home</option>
+          <option value="office">Office</option>
+          <option value="school">School</option>
+        </select>
+      </div>
+    </div>
+  </div>
 
   <script>
     function addTodo() {
@@ -20,6 +73,11 @@
       document.getElementById("todo-list").appendChild(li);
       input.value = "";
     }
+
+    // Dark Mode toggle
+    document.getElementById("toggle-dark").addEventListener("change", function () {
+      document.body.classList.toggle("dark-mode", this.checked);
+    });
   </script>
 </body>
 </html>
