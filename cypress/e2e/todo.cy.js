@@ -12,4 +12,16 @@ describe('To-Do App', () => {
     cy.contains('Add').click();
     cy.get('#todo-list').should('contain', 'Learn Cypress');
   });
+
+  it('inputs a text', () => {
+    cy.get('#text-field').type('Hello, Cypress!');
+    cy.get('#text-field').should('have.value', 'Hello, Cypress!');
+  });
+
+  it('Check a checkbox', () => {
+    cy.get('input[name="priority"][value="medium"]').check().should('be.checked');
+
+  });
+
+
 });
